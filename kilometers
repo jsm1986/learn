@@ -1,0 +1,49 @@
+from Tkinter import *
+root = Tk()
+root.title("km/mi convert")
+
+#input box
+e = Entry(root, width = 35, borderwidth =5)
+e.grid( row =0, column =0, columnspan=3, padx=10,pady=10)
+
+#button functions
+#convert miles to kilometers
+
+def button_Kilo():
+    #e.get ia default string
+    current = e.get()
+    #change e.get to float number
+    current =float(current)
+    e.delete(0,END)
+    e.insert(0,current * 1.60934)
+    
+#convert kilometers to miles
+def button_Mile():
+    current = e.get()
+    current =float(current)
+    e.delete(0,END)
+    e.insert(0,current * 0.62137)
+#clear button
+def button_Clear():
+    e.delete(0,END)
+    
+
+#button size and shape
+button_1 = Button(root, text="MI", padx=40,pady=20, command=lambda: button_Kilo())
+#put buttons on the screen
+button_1.grid(row=3, column=0)
+
+#button size and shape
+button_2 = Button(root, text="KM", padx=40,pady=20, command=lambda: button_Mile())
+#put buttons on the screen
+button_2.grid(row=4, column=0)
+
+#button size and shape
+button_C = Button(root, text="clear", padx=79,pady=20, command=button_Clear)
+#put buttons on the screen
+button_C.grid(row=4, column=1,columnspan=2)
+
+
+
+root.mainloop()
+
