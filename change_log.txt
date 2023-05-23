@@ -1,0 +1,57 @@
+05/17/2023 Rows before removing anything 622361
+05/17/2023 remove 1070 id 897F790CF295C5CB under file august2020_final
+This was causing a conversion issue from string to timestamp
+5/17/2023 number of rows after removing nulls 608509
+5/17/2023 failed to insert day of the week column.(in progress)
+5/18/2023 removed ride lenghth that totals 0 total rows 600196
+5/18/2023 Set column week day, month name, start time, end time, hour,quarter
+5/18/2023 hour will be used to determine morning, afternoon, evening
+5/18/2023 quarter will be used for Spring, Summer, winter, fall(failed) if statment used.
+5/19/2023 deleted row 387475 due to format conversion problems id ACB6B40CF5B9044C october
+5/19/2023 deleted row 280378 due to format conversion problems  September
+5/19/2023 deleted row number is row in excel
+5/19/2023 Finished tme_of_day  amd season_time
+5/19/2023 file format example afer removing rows august2020_final
+5/19/2023 Deciding what columns to eliminate and creating a seperate pyfile to check duplicates.
+5/19/2023 Created columns for day of the month and year
+5/19/2023 december2020_final row 118291 in excel has been delete for improper format id 70B6A9A437D4C30D
+5/19/2023 january2021_final row 77560 in excel has been delete for improper format id E19E6F1B8D4C42ED
+5/19/2023 february2021_final row 17261 in excel has been delete for improper format id 89E7AA6C29227EFF
+5/19/2023 march2021_final row 98503 in excel has been delete for improper format id CFA86D4455AA1030
+5/19/2023 april2021_final row 139056 in excel has been delete for improper format id 6C992BD37A98A63F
+5/19/2023 may2021_final row 488869 in excel has been delete for improper format id C809ED75D6160B2A
+5/19/2023 june2021_final row 327195 in excel has been delete for improper format id 78A46DE3F71FFE5E
+5/19/2023 june2021_final row 35850 in excel has been delete for improper format id 0A1B623926EF4E16
+5/20/2023 polished the code with notes and drop columns start_lat, end_lat,start_lng,end_lng,ride_id,and quarter
+5/20/2023 Created polished excel files for joining the tables to create one data_frame
+5/20/2023 created a merged data set of all data frames
+5/20/2023 rest the index
+5/20/2023 created ready to use  filtered and polished excel spreadsheets for pivot table breakdown.
+5/20/2023. There are now 2 versions of the code. One that loads one dataframe as template and the merged dataframe
+5/20/2023 no duplicates dedected.
+5/20/2023 outliers in ride length -21 days +1950 and a ride length of 38 days 20:24:00
+5/20/2023 outliers <0 to get rid of the negatives or rentals>=1day total=4123005
+5/20/2023Excel spreadsheets must be redone because of outliers for ride length
+5/20/2023indexes reset again to stop an index column being created.
+5/20/2023 excel columns index needs to be dropped.
+5/21/2023 wrote code to get statistics on a larger level
+5/21/2023 Excel to get proper ride length took ride length with right function then converted to number
+5/22/2023 Had to take out more bad data because values were messing with average. If hour1 is bigger than hour2 delete
+5/22/2023  if end_time is smaller than smart time delete new total of merged is 4092650
+5/22/2023 Finalized csv files and created a new copy of files in excel workbook format.
+5/22/2023 Starting tableau project to get individual months and all together data points.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
