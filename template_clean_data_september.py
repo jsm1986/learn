@@ -6,8 +6,8 @@ from datetime import datetime
 import glob
 import os
 
-pd.options.display.max_rows=30
-pd.options.display.min_rows=30
+pd.options.display.max_rows=50
+pd.options.display.min_rows=50
 
 
 # Some printed values have been put in note notation to prevent
@@ -174,12 +174,12 @@ august2020_v3.drop(labels=['start_lat','start_lng','end_lat','end_lng','ride_id'
 
 
 # dulicate  detection
-print(august2020_v3.duplicated(keep = "first"))
-print(august2020_v3.duplicated(keep = "first").sum)
-print(august2020_v3[august2020_v3.duplicated(keep = False)])
+#print(august2020_v3.duplicated(keep = "first"))
+#print(august2020_v3.duplicated(keep = "first").sum)
+#print(august2020_v3[august2020_v3.duplicated(keep = False)])
 
 # detect outliers
-print(august2020_v3.describe())
+#print(august2020_v3.describe())
 outlier_max=august2020_v3.ride_length>="1 days 00:27:00"
 outlier_min=august2020_v3.ride_length<"0 days 00:00:00"
 max=august2020_v3.loc[outlier_max]
@@ -210,8 +210,8 @@ august2020_v3.reset_index(inplace=True,drop=True)
 #print the final output
 #print(august2020_v3.iloc[10:60])
 #print(august2020_v3.info())
-print(august2020_v3.describe())
-print(august2020_v3.info())
+#print(august2020_v3.describe())
+#print(august2020_v3.info())
 
 
 # below is the code to import results to a excel file
@@ -222,10 +222,10 @@ print(august2020_v3.info())
 
 # beginning the amalysis on large scale
 
-print(august2020_v3.agg({"ride_length":"mean"}))
+#print(august2020_v3.agg({"ride_length":"mean"}))
 #print(august2020_v3.agg({"ride_length":"max"}))
 #print(august2020_v3.agg({"ride_length":"min"}))
-print(august2020_v3.week_day.value_counts())
+#print(august2020_v3.week_day.value_counts())
 #print(august2020_v3.member_casual.value_counts())
 #print(august2020_v3.time_hour.value_counts())
 #print(august2020_v3.time_of_day.value_counts())
@@ -238,3 +238,32 @@ print(august2020_v3.week_day.value_counts())
 august2020_v3.groupby("member_casual")
 gbo=august2020_v3.groupby("member_casual")
 gbo.groups
+
+grouped_multiple = august2020_v3.groupby(['member_casual','week_day']).agg({'ride_length':['mean']})
+grouped_multiple2 = august2020_v3.groupby(['member_casual','rideable_type']).agg({'ride_length':['mean']})
+grouped_multiple3 = august2020_v3.groupby(['member_casual','time_of_day']).agg({'ride_length':['mean']})
+grouped_multiple4 = august2020_v3.groupby(['member_casual','day_of_month']).agg({'ride_length':['mean']})
+grouped_multiple5 = august2020_v3.groupby(['member_casual','season']).agg({'ride_length':['mean']})
+grouped_multiple6 = august2020_v3.groupby(['member_casual','month_name']).agg({'ride_length':['mean']})
+grouped_multiple7 = august2020_v3.groupby(['member_casual','time_hour']).agg({'ride_length':['mean']})
+grouped_multiple8 = august2020_v3.groupby(['member_casual']).agg({'ride_length':['mean']})
+
+#grouped_multiple =grouped_multiple.reset_index(drop=True)
+print(grouped_multiple)
+print(grouped_multiple2)
+print(grouped_multiple3)
+print(grouped_multiple4)
+print(grouped_multiple5)
+print(grouped_multiple6)
+print(grouped_multiple7)
+print(grouped_multiple8)
+print(august2020_v3.agg({"ride_length":"mean"}))
+
+
+
+grouped_count= august2020_v3.groupby(['member_casual','rideable_type']).agg({'ride_length':['count']})
+grouped_count2= august2020_v3.groupby(['time_hour','rideable_type','member_casual']).agg({'ride_length':['count']})
+print(grouped_count)
+print(grouped_count2)
+
+print(august2020_v3.agg({"ride_length":"mean"}))
